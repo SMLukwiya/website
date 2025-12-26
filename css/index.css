@@ -1,0 +1,100 @@
+:root {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  line-height: 1.5;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: inherit;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  width: 100vw;
+  min-height: 200px;
+  height: 100vh;
+  background-image: url(../assets/bg-morphism.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  height: 65px;
+  width: 100%;
+  padding: 5px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  /* aspect-ratio:  */
+}
+
+.mr-skate {
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 40px;
+  column-gap: 5px;
+  color: #bbbbbb;
+}
+
+.img-container {
+  width: 90px;
+  height: 40px;
+}
+
+.button {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  color: black;
+}
+
+.index-container {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+  max-height: 300px;
+  width: 250px;
+  margin: 10px;
+}
+
+.index-text {
+  color: white;
+  text-align: left;
+}
+
+@media screen {
+}

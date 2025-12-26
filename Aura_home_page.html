@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vault Runtime — alpha1</title>
+
+  <meta name="description" content="Vault Runtime is a self-hosted, edge-native runtime and orchestrator built for immutability, security, and operator control." />
+
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --fg: #e6e8eb;
+      --muted: #9aa0a6;
+      --accent: #6cf2b2;
+      --border: #1f2329;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+                   "Liberation Mono", "Courier New", monospace;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin: 0.75rem 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-left: 0.5rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin: 0.4rem 0;
+    }
+
+    .divider {
+      border-top: 1px solid var(--border);
+      margin: 3rem 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <!-- HERO -->
+    <h1>
+      Vault Runtime
+      <span class="badge">alpha1</span>
+    </h1>
+
+    <p class="muted">
+      A self-hosted, edge-native runtime and orchestrator.
+    </p>
+
+    <p>
+      Built from scratch for immutability, security, and operator control —
+      without a managed control plane.
+    </p>
+
+    <p class="muted">
+      Released one year after my first <code>hello world</code> in C.
+    </p>
+
+    <div class="divider"></div>
+
+    <!-- STORY -->
+    <h2>Why this exists</h2>
+    <p>
+      Edge computing promises low latency and locality, but most platforms
+      hide critical decisions behind opaque control planes and generic servers.
+    </p>
+    <p>
+      Vault Runtime exists to explore a different approach:
+      an edge system where performance, scheduling, and lifecycle decisions
+      are explicit, observable, and under operator control.
+    </p>
+    <p>
+      This project is the result of a year spent learning how servers,
+      kernels, I/O, and runtimes actually work.
+    </p>
+
+    <!-- WHAT WORKS -->
+    <h2>What works today (alpha1)</h2>
+    <p class="muted">
+      Runtime, orchestration, and control plane
+    </p>
+    <ul>
+      <li>Custom edge-native server written in C</li>
+      <li>HTTP/2 only, running over TLS 1.3</li>
+      <li>TLS implemented using picotls and minSSL</li>
+      <li>Pure epoll-based event loop with explicit load control</li>
+      <li>Built-in orchestration of function instances</li>
+      <li>Local, load-aware scaling without a central scheduler</li>
+      <li>CLI to start/stop the daemon and server</li>
+      <li>YAML-based server and function configuration</li>
+      <li>Streaming, event-driven YAML parser with early termination</li>
+      <li>Deep config validation with precise line/column errors</li>
+      <li>Function deployment and invocation (verified via nghttp2)</li>
+      <li>Radix tree–based routing for deployed and active functions</li>
+      <li>Custom binary blob format combining function config and code</li>
+      <li>O(1) access to blob sections via precomputed tables</li>
+    </ul>
+
+    <!-- EDGE NATIVE -->
+    <h2>What “edge-native” means in Vault</h2>
+    <ul>
+      <li>Cold-start performance is a first-class concern</li>
+      <li>Short-lived requests are prioritized explicitly</li>
+      <li>Local, load-aware orchestration at the edge</li>
+      <li>No hidden control plane or opaque scheduling</li>
+      <li>Immutable artifacts with explicit lifecycles</li>
+      <li>Deploy ≠ activate</li>
+      <li>Built close to the kernel, not layered on generic servers</li>
+    </ul>
+
+    <!-- VERSION 1 -->
+    <h2>Version 1 goals</h2>
+    <p>
+      Version 1 focuses on delivering a complete, honest, self-hosted
+      edge runtime and orchestrator.
+    </p>
+
+    <strong>Planned for v1:</strong>
+    <ul>
+      <li>Daemon configuration isolated from server configuration</li>
+      <li>Daemon key generation and secure storage</li>
+      <li>Lightweight CLI authentication</li>
+      <li>Encryption of function artifacts and configs at rest</li>
+      <li>Stabilized orchestration and scaling logic</li>
+      <li>Improved heuristics for short vs long-lived requests</li>
+      <li>JavaScript execution via QuickJS</li>
+      <li>Support for fetch, timers, and logging</li>
+    </ul>
+
+    <strong>Explicitly out of scope for v1:</strong>
+    <ul>
+      <li>WASM support (planned for later)</li>
+      <li>HTTP/1.x compatibility</li>
+      <li>Managed SaaS control plane</li>
+      <li>Opaque autoscaling or hidden scheduling logic</li>
+    </ul>
+
+    <!-- CTA -->
+    <h2>Looking for feedback</h2>
+    <p>
+      Vault Runtime is an early, opinionated system.
+      If you’ve built edge platforms, runtimes, servers, or CDNs,
+      your feedback is especially welcome.
+    </p>
+
+    <p>
+      → <a href="https://github.com/">GitHub</a>
+    </p>
+
+    <footer>
+      <p>
+        alpha1 — exploratory, incomplete, and intentionally transparent.
+      </p>
+    </footer>
+
+  </main>
+</body>
+</html>
